@@ -53,11 +53,41 @@ public class GamblingSimulation
 	        }
 	        System.out.println(" ");
 	    }      
-	  
+	  public static void eachMonth(){
+	        int stake = Stake;
+	        int month = 1;
+
+	        while (month<=1) {
+	            int day = 1;
+	            System.out.println("Month " + month);
+
+	            while (day <= 30) {
+	                stake = Stake;
+
+	                int rand = (int) Math.floor(Math.random() * 10) % 2;
+	                if (rand == Bet) {
+	                    stake = Stake + 1;
+	                } else {
+	                    stake = Stake - 1;
+	                }
+
+	                if (stake < Stake) {
+	                    System.out.println("Day " + day + " lost by " + (Stake - stake) + " $ ");
+	                } else {
+	                    System.out.println("Day " + day + " won by " + (stake - Stake) + " $ ");
+	                }
+	                day++;
+	            }
+	            month++;
+	            System.out.println();
+	        }
+
+	    }
 	public static void main(String args [])
 	{
 		WinLoss();
 		resignStake();
 		totalAmountWinorLoss();
+		eachMonth();
 	}
 }
