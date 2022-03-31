@@ -22,11 +22,24 @@ public class GamblingSimulation
           }
 	 }
 	  
-	 
+	  public static int resign(){
+	        while(Stake > 50 && Stake< 150) {
+	        	WinLoss();
+	        }
+	        if(Stake == 50) {
+	            System.out.println("The Gambler LOST 50% of stake, So he have to resign for the day. ");
+	            
+	        }
+	        else {
+	            System.out.println("The Gambler WON 50% of stake, So he have to resign for the day. ");
+	        }
+	        System.out.println(" ");
+	        return 0;
+	    }
 	 
 	public static void main(String args [])
 	{
 		WinLoss();
-		
+		resign();
 	}
 }
