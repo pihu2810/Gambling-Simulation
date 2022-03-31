@@ -12,7 +12,7 @@ public class GamblingSimulation
 			System.out.println("win the game " +win);
 		}
 		else {
-			
+			loos--;
 			System.out.println("loss the game"+loos);
 		}
 	}
