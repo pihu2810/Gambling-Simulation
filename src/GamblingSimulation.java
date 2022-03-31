@@ -7,13 +7,13 @@ public class GamblingSimulation
 	{   int cash =1;
 		int win=0;
 		int loos=0;
-		if(cash==1) {
+		if(Math.random()<0.5) {
 			win++;
-			System.out.println("win the game"+win);
+			System.out.println("win the game " +win);
 		}
 		else {
 			
-			System.out.println("loss the game");
+			System.out.println("loss the game"+loos);
 		}
 	}
 	public static void main(String args [])
