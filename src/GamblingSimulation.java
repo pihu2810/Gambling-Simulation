@@ -6,6 +6,7 @@ public class GamblingSimulation
    public static int stake;
    public static int Win=0;
    public static int Loose=0;
+   public static int totalAmountEarned;
 	  public static void WinLoss() 
 	 { 
 		  double winOrLoss = Math.floor(Math.random() * 10) % 2;
@@ -22,7 +23,7 @@ public class GamblingSimulation
           }
 	 }
 	  
-	  public static int resign(){
+	  public static int resignStake(){
 	        while(Stake > 50 && Stake< 150) {
 	        	WinLoss();
 	        }
@@ -37,9 +38,26 @@ public class GamblingSimulation
 	        return 0;
 	    }
 	 
+	  public static void totalAmountWinorLoss() {
+	        int day = 20;
+	        int totalMoney = 0;
+	        for (int i = 0; i <= day; i++) {
+	            int temp = resign();
+	            if (temp - Stake >= 50) {
+	                totalMoney = totalMoney + (temp - Stake);
+	                System.out.println(" Winning day " + i + ": Money Won is" + totalMoney);
+	            } else 
+	                totalMoney = totalMoney + (Stake - temp);
+	                System.out.println("Loosing day " + i + ": Money Lost  is " + totalMoney);
+	            
+	        }
+	        System.out.println(" ");
+	    }      
+	    
 	public static void main(String args [])
 	{
 		WinLoss();
-		resign();
+		resignStake();
+		totalAmountWinorLoss();
 	}
 }
