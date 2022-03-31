@@ -42,7 +42,7 @@ public class GamblingSimulation
 	        int day = 20;
 	        int totalMoney = 0;
 	        for (int i = 0; i <= day; i++) {
-	            int temp = resign();
+	            int temp = resignStake();
 	            if (temp - Stake >= 50) {
 	                totalMoney = totalMoney + (temp - Stake);
 	                System.out.println(" Winning day " + i + ": Money Won is" + totalMoney);
@@ -53,7 +53,7 @@ public class GamblingSimulation
 	        }
 	        System.out.println(" ");
 	    }      
-	    
+	  
 	public static void main(String args [])
 	{
 		WinLoss();
