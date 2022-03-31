@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.util.Random;
 
 public class GamblingSimulation
 {
@@ -83,11 +85,58 @@ public class GamblingSimulation
 	        }
 
 	    }
+	  public static PrintStream luckyUnluckyDay(){
+	        int stake = Stake;
+	        int month = 1;
+	        int day = 1;
+	        int UnluckyDay = 1;
+	        int LuckyDay = 1;
+	        int UnluckyMonth= 1;
+	        int LuckyMonth = 1;
+	        int LuckyDayMoney = Stake;
+	        int UnluckyDayMoney = Stake;
+
+	        while (month<=12) {
+	            day = 1;
+	            while(day<=30) {
+	                stake = Stake;
+	                Random rand = new Random();
+	                int dailyGamePlayed = rand.nextInt(10);
+
+	                for (int i = 0; i < dailyGamePlayed; i++) {
+
+	                    int randcheck = (int)Math.floor(Math.random()*10) % 2;
+	                    if (randcheck==Bet)
+	                        stake = stake + 1;
+	                    else
+	                        stake = stake - 1;
+	                }
+
+	                if(LuckyDayMoney<stake){
+	                    LuckyDay = day;
+	                    LuckyMonth = month;
+	                    LuckyDayMoney = stake;
+	                }
+
+	                if(UnluckyDayMoney>stake) {
+	                    UnluckyDay = day;
+	                    UnluckyMonth = month;
+	                    UnluckyDayMoney = stake;
+	                }
+	                day++;
+	            }
+	            month++;
+	        }
+	        System.out.println("Lucky Day "+LuckyDay+" in the month "+LuckyMonth+" Maximum money won is "+(LuckyDayMoney - Stake)+" $ ");
+	        return System.out.printf("Unlucky Day "+UnluckyDay+" in the month "+UnluckyMonth+" Maximum  money lost is " +(Stake - UnluckyDayMoney)+" $ ");
+	    }
+
 	public static void main(String args [])
 	{
 		WinLoss();
 		resignStake();
 		totalAmountWinorLoss();
 		eachMonth();
+		luckyUnluckyDay();
 	}
 }
