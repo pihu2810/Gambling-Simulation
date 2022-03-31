@@ -51,10 +51,10 @@ public class GamblingSimulation
 	            } else 
 	                totalMoney = totalMoney + (Stake - temp);
 	                System.out.println("Loosing day " + i + ": Money Lost  is " + totalMoney);
-	            
-	        }
+	             }
 	        System.out.println(" ");
-	    }      
+	    }  
+	  
 	  public static void eachMonth(){
 	        int stake = Stake;
 	        int month = 1;
@@ -83,8 +83,8 @@ public class GamblingSimulation
 	            month++;
 	            System.out.println();
 	        }
-
-	    }
+	        }
+	  
 	  public static PrintStream luckyUnluckyDay(){
 	        int stake = Stake;
 	        int month = 1;
@@ -130,6 +130,20 @@ public class GamblingSimulation
 	        System.out.println("Lucky Day "+LuckyDay+" in the month "+LuckyMonth+" Maximum money won is "+(LuckyDayMoney - Stake)+" $ ");
 	        return System.out.printf("Unlucky Day "+UnluckyDay+" in the month "+UnluckyMonth+" Maximum  money lost is " +(Stake - UnluckyDayMoney)+" $ ");
 	    }
+	  
+	  public static void continueNextMonth() {
+	        while (true) {
+	            if (Stake > 100) {
+	                System.out.println("Gambler win and total amount = " + Stake);
+	                System.out.println("gambler won so he will continue the game");
+	            } else if (Stake<100)
+	            {
+	                System.out.println("Gambler loss and total amount = " + Stake);
+	                System.out.println("gambler lost all the money so he cant keep playing");
+	               
+	            } break;
+	        }
+	    }
 
 	public static void main(String args [])
 	{
@@ -138,5 +152,6 @@ public class GamblingSimulation
 		totalAmountWinorLoss();
 		eachMonth();
 		luckyUnluckyDay();
+		continueNextMonth();
 	}
 }
